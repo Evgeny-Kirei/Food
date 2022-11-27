@@ -5,17 +5,18 @@ window.addEventListener('DOMContentLoaded', () =>  {
           tabsContent = document.querySelectorAll('.tabcontent'),
           tabsParent = document.querySelector('.tabheader__items');
 
+        // Скрываем фото контента
     function hideTabContent() {
-        tabsContent.forEach(item => {
-            item.style.display = 'none';
+        tabsContent.forEach(item => { //Перебирае все фото 
+            item.style.display = 'none'; //скрываем
         });
 
-        tabs.forEach(item => {
+        tabs.forEach(item => { //Меняем класс активности
             item.classList.remove('tabheader__item_active');
         });
     }
 
-    function showTabContent(i) {
+    function showTabContent(i) { //Показываем фото по очереди 
         tabsContent[i].style.display = 'block';
         tabs[i].classList.add('tabheader__item_active');
     }
@@ -24,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () =>  {
     showTabContent(0);
 
     tabsParent.addEventListener('click', (event) => {
-        const target = event.target;
+        const target = event.target;  // Добавляем событие клика чтобы при клике менялись фото
 
         if (target && target.classList.contains('tabheader__item')) {
             tabs.forEach((item, i) => {
